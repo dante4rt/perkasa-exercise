@@ -156,27 +156,28 @@ export default function FirstRowCard() {
         }
     }, [])
     return (
-        <div className="flex flex-col gap-4 bg-white border border-gray-200 rounded-lg shadow-sm p-6 pt-8 pb-8">
+        <div className="h-auto">
+            <div className="flex flex-col gap-4 bg-white border border-gray-200 rounded-lg shadow-md p-6 py-5 mb-6">
             <div>
-                <h3 className="flex items-center mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+                <h3 className="flex items-center mb-2 mt-2 text-3xl font-semibold text-gray-900 dark:text-white">
                     Company Overview
                 </h3>
             </div>
-            <div className='flex gap-4'>
-                <div className="w-[60%] flex flex-col gap-5">
-                    <div className="p-4 flex bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div className='flex gap-6'>
+                <div className="w-[65%] flex flex-col gap-5">
+                    <div className="p-4 flex bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800 h-48">
 
                         <div className="w-[100%]">
                             <h3 className="text-base font-semibold">
                                 Total Employees
                             </h3>
-                            <div className="flex pt-3 mt-4">
-                                <div>
+                            <div className="flex pt-2">
+                                <div className=" mt-4">
                                     <span className="text-xl font-bold leading-none text-gray-900 sm:text-5xl dark:text-white">
                                         2,420
                                     </span>
                                     <div
-                                        className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="inline-flex mt-6 items-center text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                                         data-dropdown-toggle="weekly-sales-dropdown"
                                     >
                                         <div className="flex items-center justify-end flex-1 text-base font-medium text-green-500 dark:text-green-400">
@@ -200,24 +201,24 @@ export default function FirstRowCard() {
                                     </div>
                                 </div>
                                 <div className="w-[100%] flex flex-row-reverse">
-                                    <img src="./greenChart.png" className="object-cover" width={"50%"} height={"40%"} />
+                                    <img src="./greenChart.png" className="object-cover" width={"60%"} />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="p-4 flex bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                    <div className="p-4 flex bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800 h-48">
 
                         <div className="w-[100%]">
                             <h3 className="text-base font-semibold">
                                 Total Department
                             </h3>
-                            <div className="flex pt-3 mt-4">
-                                <div>
+                            <div className="flex">
+                                <div className="mt-4 pt-2">
                                     <span className="text-xl font-bold leading-none text-gray-900 sm:text-5xl dark:text-white">
                                         100
                                     </span>
                                     <div
-                                        className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="inline-flex mt-6 items-center text-sm font-medium text-center text-gray-500 rounded-lg hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                                         data-dropdown-toggle="weekly-sales-dropdown"
                                     >
                                         <div className="flex items-center justify-end flex-1 text-base font-medium text-red-500 dark:text-green-400">
@@ -237,26 +238,26 @@ export default function FirstRowCard() {
                                             52
                                         </div>
                                         <div className="pl-1">
-                                            {" "}vs last month
+                                        {" "}vs last month
                                         </div>
                                     </div>
                                 </div>
                                 <div className="w-[100%] flex flex-row-reverse">
-                                    <img src="./redChart.png" className="object-cover" width={"50%"} height={"40%"} />
+                                    <img src="./redChart.png" className="object-cover" width={"60%"} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="w-[100%] bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                    <div className="flex items-center justify-between mb-4 dark:border-gray-700">
+                    <div className="flex h-0 items-center justify-between mb-4 dark:border-gray-700">
                         <div>
                             <h3 className="text-base font-semibold">
                                 Diversity
                             </h3>
                         </div>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex mt-8 gap-4">
                         <div className="w-[50%] bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800 flex flex-col justify-center">
                         <h3 className="text-base font-semibold flex justify-center">
                                 Gender
@@ -272,6 +273,7 @@ export default function FirstRowCard() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
