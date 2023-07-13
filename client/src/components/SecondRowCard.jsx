@@ -118,7 +118,7 @@ export default function SecondRowCard() {
                     </div>
                 </div>
 
-                <div className="inline-block h-[450px] min-h-[1em] w-2 self-stretch bg-neutral-100 opacity-100 dark:opacity-50" />
+                <div className="inline-block h-[500px] min-h-[1em] w-2 self-stretch bg-neutral-100 opacity-100 dark:opacity-50" />
 
                 <div className="w-full flex flex-col ml-2 mt-16">
                     <div className="flex gap-36">

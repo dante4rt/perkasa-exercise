@@ -528,7 +528,7 @@ export default function Home() {
 
     return (
         <main className="pt-2 md:ml-64 h-auto bg-[#0f1728]">
-            <div className="container bg-white pt-0 rounded-s-3xl">
+            <div className="container bg-white pt-0 rounded-ss-3xl">
                 <div className='flex w-auto justify-between p-6'>
                     <div className='flex flex-col pl-3'>
                         <div className='font-bold text-lg text-blue-800'>COMPANY NAME</div>

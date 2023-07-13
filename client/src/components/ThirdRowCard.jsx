@@ -118,7 +118,7 @@ export default function ThirdRowCard() {
                     </div>
                 </div>
 
-                <div className="inline-block h-[450px] min-h-[1em] w-2 self-stretch bg-neutral-100 opacity-100 dark:opacity-50" />
+                <div className="inline-block h-[550px] min-h-[1em] w-2 self-stretch bg-neutral-100 opacity-100 dark:opacity-50" />
 
                 <div className="w-full flex flex-col ml-2 gap-2">
                     <h3 className="flex justify-center gap-2 items-center mb-4 text-md font-semibold text-gray-900 dark:text-white">
@@ -275,13 +275,36 @@ export default function ThirdRowCard() {
                                                     $2300
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td className="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <div className="flex items-center space-x-4">
+                                                        <div className="flex-shrink-0">
+                                                            <img
+                                                                className="w-8 h-8 rounded-full"
+                                                                src="https://flowbite-admin-dashboard.vercel.app/images/users/neil-sims.png"
+                                                                alt="Neil image"
+                                                            />
+                                                        </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-medium text-gray-900 truncate dark:text-white">
+                                                                Neil Sims
+                                                            </p>
+                                                        </div></div>
+                                                </td>
+                                                <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Apr 23 ,2021
+                                                </td>
+                                                <td className="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+                                                    $2300
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-end mt-2 text-blue-700">
+                    <div className="flex justify-end mt-10 text-blue-700">
                         <span>Go to leave</span>
                     </div>
                 </div>
