@@ -1,6 +1,69 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import MySwal from '../helpers/helper'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import usePerkasaCounter from '../store'
+const SERVER = 'https://dev-api.fortiusys.com/api/register'
 
 export default function Register() {
+    const navigate = useNavigate()
+    const fetchLocation = usePerkasaCounter((state) => state.fetchLocation)
+    const fetchBusiness = usePerkasaCounter((state) => state.fetchBusiness)
+    const location = usePerkasaCounter((state) => state.location)
+    const business = usePerkasaCounter((state) => state.business)
+
+    const [formInput, setFormInput] = useState({
+        name: '',
+        email: '',
+        password: '',
+        passwordConfirmation: '',
+        company_name: '',
+        numberOfEmployees: 0,
+        company_location: '',
+        company_business_id: ''
+    })
+
+    const handleChange = (e) => {
+        const { value, name } = e.target
+
+        const newInput = {
+            ...formInput,
+            [name]: value
+        }
+
+        setFormInput(newInput)
+    }
+
+    async function Register(responses) {
+        try {
+            const { data } = await axios({
+                url: SERVER,
+                method: 'POST',
+                data: responses
+            })
+            MySwal.fire('Register success!')
+            navigate('/login')
+        } catch (error) {
+            MySwal.fire(error.message)
+            console.log(error);
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(formInput, `<<<`);
+        if (formInput.password !== formInput.passwordConfirmation) {
+            return MySwal.fire('Password must be same!')
+        }
+        formInput.numberOfEmployees = Number(formInput.numberOfEmployees)
+        Register(formInput)
+    }
+
+    useEffect(() => {
+        fetchLocation()
+        fetchBusiness()
+    }, [])
+
     return (
         <div className="flex flex-col items-center justify-center px-6 pt-0 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
             <NavLink to={'/register'} className="flex items-center justify-center text-2xl font-semibold mb-5 text-white">
@@ -12,7 +75,7 @@ export default function Register() {
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                     Register an account
                 </h2>
-                <form className="mt-8 space-y-6" action="#">
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <div className='grid grid-cols-2 gap-6'>
                         <div>
                             <label
@@ -21,6 +84,8 @@ export default function Register() {
                                 Name
                             </label>
                             <input
+                                onChange={handleChange}
+                                value={formInput.name}
                                 type="text"
                                 name="name"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -36,6 +101,8 @@ export default function Register() {
                                 Email
                             </label>
                             <input
+                                onChange={handleChange}
+                                value={formInput.email}
                                 type="email"
                                 name="email"
                                 id="email"
@@ -55,6 +122,8 @@ export default function Register() {
                                 Password
                             </label>
                             <input
+                                onChange={handleChange}
+                                value={formInput.password}
                                 type="password"
                                 name="password"
                                 id="password"
@@ -71,8 +140,10 @@ export default function Register() {
                                 Password Confirmation
                             </label>
                             <input
+                                onChange={handleChange}
+                                value={formInput.passwordConfirmation}
                                 type="password"
-                                name="confirm-password"
+                                name="passwordConfirmation"
                                 id="confirm-password"
                                 placeholder="••••••••"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -88,8 +159,10 @@ export default function Register() {
                                 Company Name
                             </label>
                             <input
+                                onChange={handleChange}
+                                value={formInput.company_name}
                                 type="text"
-                                name="name"
+                                name="company_name"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Your Company Name"
                                 required
@@ -102,8 +175,10 @@ export default function Register() {
                                 Number of Employees
                             </label>
                             <input
+                                onChange={handleChange}
+                                value={formInput.numberOfEmployees}
                                 type="number"
-                                name="name"
+                                name="numberOfEmployees"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="0"
                                 required
@@ -113,21 +188,23 @@ export default function Register() {
 
                     <div className='grid grid-cols-2 gap-6'>
                         <div>
-                            <label for="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Locations</label>
+                            <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Locations</label>
                             <select id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">Flowbite</option>
-                                <option value="RE">React</option>
-                                <option value="AN">Angular</option>
-                                <option value="VU">Vue JS</option>
+                                {location.map(el => {
+                                    return (
+                                        <option key={el.id} value={formInput.company_location = el.id}>{el.name}</option>
+                                    )
+                                })}
                             </select>
                         </div>
                         <div>
-                            <label for="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Business</label>
+                            <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Business</label>
                             <select id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">Tech</option>
-                                <option value="RE">React</option>
-                                <option value="AN">Angular</option>
-                                <option value="VU">Vue JS</option>
+                                {business.map(el => {
+                                    return (
+                                        <option key={el.id} value={formInput.company_business_id = el.id}>{ el.business_name }</option>        
+                                    )
+                                })}
                             </select>
                         </div>
                     </div>

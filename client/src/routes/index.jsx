@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, redirect } from 'react-router-dom'
 import Layout from '../views/Layout'
 import Home from '../views/Home';
 import Calendar from '../views/Calendar';
@@ -10,6 +10,13 @@ import Register from '../views/Register';
 const router = createBrowserRouter([
     {
         element: <Layout />,
+        loader: () => {
+            const token = localStorage.getItem("access_token")
+
+            // if (!token) throw redirect('/login')
+
+            return null;
+        },
         children: [
             {
                 path: '/',
@@ -31,11 +38,25 @@ const router = createBrowserRouter([
     },
     {
         path: '/login',
-        element: <Login />
+        element: <Login />,
+        loader: () => {
+            const token = localStorage.getItem("access_token")
+
+            // if (token) throw redirect('/')
+
+            return null;
+        }
     },
     {
         path: '/register',
-        element: <Register />
+        element: <Register />,
+        loader: () => {
+            const token = localStorage.getItem("access_token")
+
+            // if (token) throw redirect('/')
+
+            return null;
+        }
     }
 ])
 

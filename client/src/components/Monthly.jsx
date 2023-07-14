@@ -3,54 +3,24 @@ export default function Monthly() {
         <div className="container">
             <div className="wrapper overflow-hidden w-full mx-18 bg-white rounded">
                 <div className="header flex justify-between p-2">
-                    <span className="text-lg font-bold">2020 July</span>
+                    <div className="flex gap-1">
+                        <div>
+                            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>2022</option>
+                                <option value="US">2023</option>
+                            </select>
+
+                        </div>
+                        <div>
+                            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>January</option>
+                                <option value="US">February</option>
+                            </select>
+
+                        </div>
+                    </div>
                     <div className="buttons">
-                        <button className="p-1">
-                            <svg
-                                width="1em"
-                                fill="gray"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                className="bi bi-arrow-left-circle"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                />
-                                <path
-                                    fillRule="evenodd"
-                                    d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"
-                                />
-                                <path
-                                    fillRule="evenodd"
-                                    d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"
-                                />
-                            </svg>
-                        </button>
-                        <button className="p-1">
-                            <svg
-                                width="1em"
-                                fill="gray"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                className="bi bi-arrow-right-circle"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                                />
-                                <path
-                                    fillRule="evenodd"
-                                    d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"
-                                />
-                                <path
-                                    fillRule="evenodd"
-                                    d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"
-                                />
-                            </svg>
-                        </button>
+                        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Set Schedule</button>
                     </div>
                 </div>
                 <table className="w-full table-fixed">
@@ -182,7 +152,7 @@ export default function Monthly() {
                                                     <span>Employee Working</span><br />
                                                 </div>
                                             </div>
-                                            <span className="font-bold">8</span><br />
+                                            <span className="font-bold ml-4">8</span><br />
                                             <div className="flex gap-0.5">
                                                 <div>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 mt-0.5 h-4">
@@ -194,7 +164,7 @@ export default function Monthly() {
                                                     <span>Working Hours</span><br />
                                                 </div>
                                             </div>
-                                            <span className="font-bold">14 Hours 30 Minutes</span>
+                                            <span className="font-bold ml-4">14 Hours 30 Minutes</span>
                                         </div>
                                     </div>
                                 </div>
@@ -339,7 +309,7 @@ export default function Monthly() {
                                                     <span>Employee Working</span><br />
                                                 </div>
                                             </div>
-                                            <span className="font-bold">20</span><br />
+                                            <span className="font-bold ml-4">20</span><br />
                                             <div className="flex gap-0.5">
                                                 <div>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 mt-0.5 h-4">
@@ -351,7 +321,7 @@ export default function Monthly() {
                                                     <span>Working Hours</span><br />
                                                 </div>
                                             </div>
-                                            <span className="font-bold">10 Hours 5 Minutes</span>
+                                            <span className="font-bold ml-4">10 Hours 5 Minutes</span>
                                         </div>
                                     </div>
                                 </div>
@@ -405,8 +375,6 @@ export default function Monthly() {
                                 </div>
                             </td>
                         </tr>
-                        {/*         line 3 */}
-                        {/*         line 4 */}
                         <tr className="text-center h-20">
                             <td className="border-t p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300">
                                 <div className="flex flex-col h-40 xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">

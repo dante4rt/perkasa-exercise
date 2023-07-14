@@ -1,6 +1,48 @@
-import { NavLink } from "react-router-dom"
+import { useState } from "react"
+import { NavLink, useNavigate } from "react-router-dom"
+const SERVER = 'https://dev-api.fortiusys.com/api/login'
+import MySwal from '../helpers/helper'
+import axios from 'axios'
 
 export default function Login() {
+    const navigate = useNavigate()
+    const [formInput, setFormInput] = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (e) => {
+        const { value, name } = e.target
+
+        const newInput = {
+            ...formInput,
+            [name]: value
+        }
+
+        setFormInput(newInput)
+    }
+
+    async function Login(responses) {
+        try {
+            const { data } = await axios({
+                url: SERVER,
+                method: 'POST',
+                data: responses
+            })
+            localStorage.setItem('access_token', data.access_token);
+            MySwal.fire('Login success!')
+            navigate('/')
+        } catch (error) {
+            MySwal.fire(error.message)
+            console.log(error);
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        Login(formInput)
+    }
+
     return (
         <div className="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
             <a
@@ -15,7 +57,7 @@ export default function Login() {
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                     Sign in to platform
                 </h2>
-                <form className="mt-8 space-y-6" action="#">
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <div>
                         <label
                             htmlFor="email"
@@ -24,6 +66,8 @@ export default function Login() {
                             Email
                         </label>
                         <input
+                            onChange={handleChange}
+                            value={formInput.email}
                             type="email"
                             name="email"
                             id="email"
@@ -40,6 +84,8 @@ export default function Login() {
                             Password
                         </label>
                         <input
+                            onChange={handleChange}
+                            value={formInput.password}
                             type="password"
                             name="password"
                             id="password"
