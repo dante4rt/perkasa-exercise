@@ -134,10 +134,10 @@ export default function ThirdRowCard() {
                     </h3>
                     <div className="flex flex-col">
                         <div className="overflow-x-auto rounded-lg">
-                            <div className="inline-block min-w-full align-middle">
-                                <div className="overflow-hidden shadow sm:rounded-lg">
+                            <div className="inline-block min-w-full  align-middle">
+                                <div className=" max-h-96 shadow sm:rounded-lg">
                                     <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                                        <thead className="bg-gray-50 dark:bg-gray-700">
+                                        <thead className="bg-gray-50 dark:bg-gray-700 sticky top-0">
                                             <tr>
                                                 <th
                                                     scope="col"
@@ -159,7 +159,76 @@ export default function ThirdRowCard() {
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody className="bg-white dark:bg-gray-800">
+                                        <tbody className="bg-white h-96 overflow-y-auto dark:bg-gray-800">
+                                            <tr>
+                                                <td className="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <div className="flex items-center space-x-4">
+                                                        <div className="flex-shrink-0">
+                                                            <img
+                                                                className="w-8 h-8 rounded-full"
+                                                                src="https://flowbite-admin-dashboard.vercel.app/images/users/neil-sims.png"
+                                                                alt="Neil image"
+                                                            />
+                                                        </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-medium text-gray-900 truncate dark:text-white">
+                                                                Neil Sims
+                                                            </p>
+                                                        </div></div>
+                                                </td>
+                                                <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Apr 23 ,2021
+                                                </td>
+                                                <td className="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+                                                    $2300
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <div className="flex items-center space-x-4">
+                                                        <div className="flex-shrink-0">
+                                                            <img
+                                                                className="w-8 h-8 rounded-full"
+                                                                src="https://flowbite-admin-dashboard.vercel.app/images/users/neil-sims.png"
+                                                                alt="Neil image"
+                                                            />
+                                                        </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-medium text-gray-900 truncate dark:text-white">
+                                                                Neil Sims
+                                                            </p>
+                                                        </div></div>
+                                                </td>
+                                                <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Apr 23 ,2021
+                                                </td>
+                                                <td className="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+                                                    $2300
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                                    <div className="flex items-center space-x-4">
+                                                        <div className="flex-shrink-0">
+                                                            <img
+                                                                className="w-8 h-8 rounded-full"
+                                                                src="https://flowbite-admin-dashboard.vercel.app/images/users/neil-sims.png"
+                                                                alt="Neil image"
+                                                            />
+                                                        </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-medium text-gray-900 truncate dark:text-white">
+                                                                Neil Sims
+                                                            </p>
+                                                        </div></div>
+                                                </td>
+                                                <td className="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                    Apr 23 ,2021
+                                                </td>
+                                                <td className="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+                                                    $2300
+                                                </td>
+                                            </tr>
                                             <tr>
                                                 <td className="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                                     <div className="flex items-center space-x-4">
@@ -304,7 +373,7 @@ export default function ThirdRowCard() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-end mt-10 text-blue-700">
+                    <div className="flex justify-end mt-12 text-blue-700">
                         <span>Go to leave</span>
                     </div>
                 </div>
