@@ -1,7 +1,6 @@
 import { createBrowserRouter, redirect } from 'react-router-dom'
 import Layout from '../views/Layout'
 import Home from '../views/Home';
-import Calendar from '../views/Calendar';
 import Attendance from '../views/Attendance';
 import Schedule from '../views/Schedule';
 import Login from '../views/Login';
@@ -21,10 +20,6 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
-            },
-            {
-                path: '/calendar',
-                element: <Calendar />
             },
             {
                 path: '/attendance',
