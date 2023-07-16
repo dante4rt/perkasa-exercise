@@ -32,7 +32,7 @@ export default function Weekly() {
                         {/* head */}
                         <div className="flex flex-col gap-1">
                             <div className="ml-0 pb-2">
-                                <div className="justify-between w-10/12 flex gap-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-t-md focus:ring-blue-500 focus:border-blue-500 px-2 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <div className="justify-between w-[81.7%] flex gap-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-t-md focus:ring-blue-500 focus:border-blue-500 px-2 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <input type="text" className="bg-gray-50 border-0 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full" placeholder="Add Schedule" />
                                     <div className="mt-2">+</div>
                                 </div>
