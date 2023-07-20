@@ -16,11 +16,12 @@ export default function Register() {
         name: '',
         email: '',
         password: '',
-        passwordConfirmation: '',
+        step: 3,
+        password_confirmation: '',
         company_name: '',
-        numberOfEmployees: 0,
-        company_location: '',
-        company_business_id: ''
+        number_of_employees: 0,
+        company_location: 1,
+        business: ''
     })
 
     const handleChange = (e) => {
@@ -52,10 +53,10 @@ export default function Register() {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formInput, `<<<`);
-        if (formInput.password !== formInput.passwordConfirmation) {
+        if (formInput.password !== formInput.password_confirmation) {
             return MySwal.fire('Password must be same!')
         }
-        formInput.numberOfEmployees = Number(formInput.numberOfEmployees)
+        formInput.number_of_employees = Number(formInput.number_of_employees)
         Register(formInput)
     }
 
@@ -141,9 +142,9 @@ export default function Register() {
                             </label>
                             <input
                                 onChange={handleChange}
-                                value={formInput.passwordConfirmation}
+                                value={formInput.password_confirmation}
                                 type="password"
-                                name="passwordConfirmation"
+                                name="password_confirmation"
                                 id="confirm-password"
                                 placeholder="••••••••"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -176,9 +177,9 @@ export default function Register() {
                             </label>
                             <input
                                 onChange={handleChange}
-                                value={formInput.numberOfEmployees}
+                                value={formInput.number_of_employees}
                                 type="number"
-                                name="numberOfEmployees"
+                                name="number_of_employees"
                                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="0"
                                 required
@@ -202,7 +203,7 @@ export default function Register() {
                             <select id="category" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 {business.map(el => {
                                     return (
-                                        <option key={el.id} value={formInput.company_business_id = el.id}>{ el.business_name }</option>        
+                                        <option key={el.id} value={formInput.business = el.id}>{ el.business_name }</option>        
                                     )
                                 })}
                             </select>

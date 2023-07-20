@@ -12,7 +12,7 @@ const router = createBrowserRouter([
         loader: () => {
             const token = localStorage.getItem("access_token")
 
-            // if (!token) throw redirect('/login')
+            if (!token) throw redirect('/login')
 
             return null;
         },
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         loader: () => {
             const token = localStorage.getItem("access_token")
 
-            // if (token) throw redirect('/')
+            if (token) throw redirect('/')
 
             return null;
         }
